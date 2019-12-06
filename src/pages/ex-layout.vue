@@ -36,7 +36,7 @@
     <ex-button-circle type="error">10</ex-button-circle>
 
     <br>
-<!--    暂时没有思路-->
+    <!--    暂时没有思路-->
 
     <ex-icon i="all"></ex-icon>
     <ex-icon i="auto"></ex-icon>
@@ -54,37 +54,67 @@
     <ex-link type="error" disabled>error链接</ex-link>
     <ex-link type="primary" disabled>primary链接</ex-link>
 
-<!--    实际上用的还是button-->
+    <!--    实际上用的还是button-->
     <br>
-    <ex-radio value="label1">label1</ex-radio>
-    <ex-radio value="label2">label2</ex-radio>
 
-
+    <ex-input size="sm" v-model="input_text"></ex-input>
+    <ex-input size="md" v-model="input_text"></ex-input>
+    <ex-input size="lg" v-model="input_text"></ex-input>
+    <br>
+    <ex-input size="sm" v-model="input_text" disabled></ex-input>
+    <ex-input size="md" v-model="input_text" disabled></ex-input>
+    <ex-input size="lg" v-model="input_text" disabled></ex-input>
+    <br>
+    <ex-input v-model="input_text" pre-icon="all" size="sm"></ex-input>
+    <ex-input v-model="input_text" pre-icon="auto" size="md"></ex-input>
+    <ex-input v-model="input_text" pre-icon="all" size="lg"></ex-input>
     <br>
     <ex-hr type="default"></ex-hr>
     <ex-hr type="primary"></ex-hr>
     <ex-hr type="error"></ex-hr>
     <ex-hr type="info"></ex-hr>
+    <br>
+    <ex-fake-radio ></ex-fake-radio>
+    <ex-fake-radio checked></ex-fake-radio>
+    <ex-fake-radio type="primary"></ex-fake-radio>
+    <ex-fake-radio type="primary" checked></ex-fake-radio>
+    <ex-fake-radio type="error"></ex-fake-radio>
+    <ex-fake-radio type="error" checked></ex-fake-radio>
+    <ex-fake-radio type="info"></ex-fake-radio>
+    <ex-fake-radio type="info" checked></ex-fake-radio>
+
   </div>
 
 </template>
 <script>
-  export default {
-      components:{
-          'ex-button':exButton,
-          'ex-button-circle':exCircleButton,
-          'ex-icon':exIcon,
-          'ex-link':exLink,
-          'ex-radio':exRadio,
-          'ex-hr':exHr
-      }
-  }
-  import exButton from '@/components/ex-button'
-  import exCircleButton from '@/components/ex-button-circle'
-  import exIcon from '@/components/ex-icon'
-  import exLink from '@/components/ex-link'
-  import exRadio from '@/components/ex-radio'
-  import exHr from '@/components/ex-hr'
+    export default {
+        data(){
+            return{
+                input_text:'',
+
+                c:false,
+                city:"beijing"
+            }
+        },
+        components:{
+            'ex-button':exButton,
+            'ex-button-circle':exCircleButton,
+            'ex-icon':exIcon,
+            'ex-link':exLink,
+            'ex-radio':exRadio,
+            'ex-input':exInput,
+            'ex-hr':exHr,
+            'ex-fake-radio':exFakeRadio
+        }
+    }
+    import exButton from '@/components/ex-button'
+    import exCircleButton from '@/components/ex-button-circle'
+    import exIcon from '@/components/ex-icon'
+    import exLink from '@/components/ex-link'
+    import exRadio from '@/components/ex-radio'
+    import exHr from '@/components/ex-hr'
+    import exInput from '@/components/ex-input'
+    import exFakeRadio from '@/components/ex-fake-radio'
 </script>
 <style scoped>
 </style>

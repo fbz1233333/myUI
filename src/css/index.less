@@ -3,12 +3,17 @@
   min-height: 0;
   min-width: 0;
 }
+
 .div-float-left{
   float: left;
 }
+.default-font{
+  font-family: @default-font-family-zh;
+}
+
 
 .ex-button-default{
-  background-color: white;
+  background-color: @white-color;
   color: black;
 }
 
@@ -23,17 +28,17 @@
 }
 
 .ex-button-default:disabled{
-  background-color: white;
+  background-color: @white-color;
   color: lighten(@default-color,10%)
 }
 
 .ex-button-primary{
   background-color: @primary-color;
-  color: white;
+  color: @white-color;
 }
 .ex-button-primary:hover{
   background-color:  lighten(@primary-color,20%);
-  color: white;
+  color: @white-color;
 }
 
 
@@ -42,16 +47,16 @@
 }
 .ex-button-primary:disabled{
   background-color: lighten(@primary-color,40%);
-  color: white;
+  color: @white-color;
 }
 
 .ex-button-error{
   background-color: @error-color;
-  color: white;
+  color: @white-color;
 }
 .ex-button-error:hover{
   background-color: lighten(@error-color,20%);
-  color: white;
+  color: @white-color;
 }
 .ex-button-error:focus{
   border-color: lighten(@error-color,20%);
@@ -59,23 +64,23 @@
 
 .ex-button-error:disabled{
   background-color:lighten(@error-color,40%);
-  color: white;
+  color: @white-color;
 }
 .ex-button-info{
   background-color: @info-color ;
-  color: white;
+  color: @white-color;
 }
 .ex-button-info:hover{
   background-color: lighten(@info-color,20%) ;
-  color: white;
+  color: @white-color;
 }
 .ex-button-info:focus{
-  border-color: white;
+  border-color: @white-color;
 }
 
 .ex-button-info:disabled{
   background-color: lighten(@info-color,40%) ;
-  color: white;
+  color: @white-color;
 }
 
 
@@ -110,7 +115,7 @@
   border-radius: 8px;
   border-style:solid;
   border-width:1px;
-  border-color:#d3dce6;
+  border-color:@border-color;
 }
 .ex-button:focus{
   outline: 0;
@@ -120,19 +125,22 @@
 .ex-button:hover{
   border-style:solid;
   border-width:1px;
-  border-color:#d3dce6;
+  border-color:@border-color
 }
 .ex-button:hover:disabled{
   cursor: not-allowed;
   border-style:solid;
   border-width:1px;
-  border-color:#d3dce6;
+  border-color:@border-color
 }
 
 .ex-link{
   outline: 0;
-  background: white;
+  background: @white-color;
   border-width: 0;;
+}
+.ex-link:hover:disabled{
+  cursor: not-allowed;
 }
 .ex-link-default{
   color: @default-color2;
@@ -176,20 +184,41 @@
   color: lighten(@error-color,20%);
 }
 
-
 .ex-radio{
+  display: none;
+}
+.ex-radio+b{
+  display: inline-block;
+  border: 1px solid #999;
+  background-color: #fff;
+  border-radius: 50%;
+  vertical-align: middle;
   width: 15px;
   height: 15px;
-  border:2px solid @primary-color;
+
+}
+.ex-radio:checked+b{
+  display: inline-block;
+  border: 5px solid @default-color2;
+  color: @default-color2;
+  background-color: #fff;
+  border-radius: 50%;
   vertical-align: middle;
-  margin-top: -2px;
-  margin-bottom: 1px;
+
+  width: 6px;
+  height: 6px;
+
 }
 
-.ex-label{
-  color: @black-color;
+.radio-label-font{
+  color: black;
 }
-////info
+.radio-label-font-checked{
+  color: @default-color2;
+}
+.radio-b{
+  cursor: pointer;
+}
 .div-row{
   display: inline;
 }
@@ -209,4 +238,101 @@
 }
 .ex-hr-error{
   border-color: @error-color;
+}
+
+
+.ex-input{
+  margin: 5px;
+  border: 1px solid @border-color;
+  border-radius: 10px;
+  outline: 0;
+}
+.ex-input:focus{
+  box-shadow: 1px 1px 10px 4px @default-color;
+}
+.ex-input:disabled{
+  background: @border-color;
+}
+.ex-input:disabled:hover{
+  cursor: not-allowed;
+}
+.ex-input-sm{
+  height: 20px;
+  width: 100px;
+  font-size: @font-sm;
+}
+
+.ex-input-md{
+  height: 30px;
+  width: 150px;
+  font-size: @font-md;
+}
+.ex-input-lg{
+  height: 40px;
+  width: 200px;
+  font-size: @font-lg;
+}
+
+.ex-fake-radio{
+  display: inline-block;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  width: 15px;
+  height: 15px;
+}
+.ex-fake-radio-checked{
+  display: inline-block;
+  border-width: 6px;
+  border-style: solid;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+.ex-fake-radio-default{
+  border-color: @default-color;
+}
+.ex-fake-radio-primary{
+  border-style: @primary-color;
+}
+
+.ex-fake-radio-error{
+  border-color: @error-color;
+}
+.ex-fake-radio-info{
+  border-color: @info-color;
+}
+.ex-pre-icon{
+  position: absolute;
+  background-color:white;
+  background-repeat: no-repeat;
+}
+//标准的边界样式
+.ex-pre-icon-lg{
+  margin-top:6px;
+  margin-left:7px;
+  width: 40px;
+  height: 41px;
+}
+.ex-pre-icon-sm{
+  margin-top:18px;
+  margin-left:8px;
+  width:20px;
+  height: 20px;
+}
+.ex-pre-icon-md{
+  margin-top:14px;
+  margin-left:7px;
+  width: 30px;
+  height: 30px;
+}
+
+.ex-reserve-sm{
+  padding-left: 22px;
+}
+.ex-reserve-md{
+  padding-left: 31px;
+}
+.ex-reserve-lg{
+  padding-left: 41px;
 }
