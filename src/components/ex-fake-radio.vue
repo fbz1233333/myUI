@@ -1,7 +1,7 @@
 <template>
   <div class="div-row">
     <b @click="handleClick"
-       :class="[checked?'ex-fake-radio-checked':'ex-fake-radio','ex-fake-radio-'+type]"
+       :class="[checked?'ex-fake-radio-checked':'ex-fake-radio-unchecked','ex-fake-radio','ex-fake-radio-'+type]"
        :checked="checked">
     </b>
   </div>

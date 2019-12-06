@@ -1,13 +1,15 @@
 <template>
   <div class="div-row">
 <!--    绝对布局的要诀-->
-    <ex-icon i="all" v-if="preIcon!==''"
+    <ex-icon :i="preIcon" v-if="preIcon!==''"
              :class="['ex-pre-icon', 'ex-pre-icon-'+size]"></ex-icon>
     <input class="ex-input"
-           :class="['ex-input-'+size,preIcon==''?'':'ex-reserve-'+size]"
+           :class="['ex-input-'+size,preIcon==''?'':'ex-pre-reserve-'+size,'ex-pre-reserve']"
            :disabled="disabled"
            :clearable="clearable"
            @input="input">
+    <ex-icon :i="sufIcon" v-if="sufIcon!==''"
+             :class="['ex-suf-icon', 'ex-suf-icon-'+size]"></ex-icon>
   </div>
 </template>
 <script>

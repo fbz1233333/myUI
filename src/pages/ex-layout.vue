@@ -69,11 +69,15 @@
     <ex-input v-model="input_text" pre-icon="auto" size="md"></ex-input>
     <ex-input v-model="input_text" pre-icon="all" size="lg"></ex-input>
     <br>
+    <ex-input v-model="input_text" suf-icon="all" size="sm"></ex-input>
+    <ex-input v-model="input_text" suf-icon="auto" size="md"></ex-input>
+    <ex-input v-model="input_text" suf-icon="all" size="lg"></ex-input>
+    <br>
     <ex-hr type="default"></ex-hr>
     <ex-hr type="primary"></ex-hr>
     <ex-hr type="error"></ex-hr>
     <ex-hr type="info"></ex-hr>
-    <br>
+
     <ex-fake-radio ></ex-fake-radio>
     <ex-fake-radio checked></ex-fake-radio>
     <ex-fake-radio type="primary"></ex-fake-radio>
