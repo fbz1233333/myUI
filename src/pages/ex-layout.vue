@@ -37,6 +37,34 @@
 
     <br>
 <!--    暂时没有思路-->
+
+    <ex-icon i="all"></ex-icon>
+    <ex-icon i="auto"></ex-icon>
+
+    <br>
+
+    <ex-link>default链接</ex-link>
+    <ex-link type="info" href="http://www.baidu.com">info链接</ex-link>
+    <ex-link type="error">error链接</ex-link>
+    <ex-link type="primary">primary链接</ex-link>
+    <br>
+
+    <ex-link disabled>default链接</ex-link>
+    <ex-link type="info" disabled>info链接</ex-link>
+    <ex-link type="error" disabled>error链接</ex-link>
+    <ex-link type="primary" disabled>primary链接</ex-link>
+
+<!--    实际上用的还是button-->
+    <br>
+    <ex-radio value="label1">label1</ex-radio>
+    <ex-radio value="label2">label2</ex-radio>
+
+
+    <br>
+    <ex-hr type="default"></ex-hr>
+    <ex-hr type="primary"></ex-hr>
+    <ex-hr type="error"></ex-hr>
+    <ex-hr type="info"></ex-hr>
   </div>
 
 </template>
@@ -44,12 +72,19 @@
   export default {
       components:{
           'ex-button':exButton,
-          'ex-button-circle':exCircleButton
+          'ex-button-circle':exCircleButton,
+          'ex-icon':exIcon,
+          'ex-link':exLink,
+          'ex-radio':exRadio,
+          'ex-hr':exHr
       }
   }
   import exButton from '@/components/ex-button'
   import exCircleButton from '@/components/ex-button-circle'
-
+  import exIcon from '@/components/ex-icon'
+  import exLink from '@/components/ex-link'
+  import exRadio from '@/components/ex-radio'
+  import exHr from '@/components/ex-hr'
 </script>
 <style scoped>
 </style>

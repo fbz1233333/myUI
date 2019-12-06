@@ -26,10 +26,10 @@
 
 
         mounted(){
+
+
         }
     }
 </script>
-<style scoped lang="less">
-@import "../css/index.less";
-
+<style scoped>
 </style>

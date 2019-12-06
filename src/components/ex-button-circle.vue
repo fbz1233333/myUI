@@ -1,8 +1,8 @@
 <template>
 
-    <button class="ex-button" :class="'ex-button-'+type">
-      <slot></slot>
-    </button>
+  <button class="ex-button" :class="'ex-button-'+type">
+    <slot></slot>
+  </button>
 
 </template>
 <script>
@@ -24,12 +24,8 @@
                     default:'default'
                 },
             },
-
-
-        mounted(){
-        }
     }
 </script>
 <style scoped>
-  @import "../css/index.less";
+
 </style>

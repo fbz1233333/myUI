@@ -1,21 +1,30 @@
 @import "../less/config.less";
+.div-min{
+  min-height: 0;
+  min-width: 0;
+}
+.div-float-left{
+  float: left;
+}
+
 .ex-button-default{
   background-color: white;
   color: black;
 }
 
+
 .ex-button-default:hover{
-  background-color: #a0cfff ;
-  color: #3a8ee6;
+  background-color: @default-color;
+  color: @default-color2;
 }
 
 .ex-button-default:focus{
-  border-color: #3a8ee6;
+  border-color: @default-color2;
 }
 
 .ex-button-default:disabled{
   background-color: white;
-  color: #d3dce6;
+  color: lighten(@default-color,10%)
 }
 
 .ex-button-primary{
@@ -112,4 +121,92 @@
   border-style:solid;
   border-width:1px;
   border-color:#d3dce6;
+}
+.ex-button:hover:disabled{
+  cursor: not-allowed;
+  border-style:solid;
+  border-width:1px;
+  border-color:#d3dce6;
+}
+
+.ex-link{
+  outline: 0;
+  background: white;
+  border-width: 0;;
+}
+.ex-link-default{
+  color: @default-color2;
+}
+.ex-link-default:hover{
+  color: @default-color;
+}
+
+.ex-link-info{
+  color: @info-color;
+}
+.ex-link-info:hover{
+  color: lighten(@info-color,20%);
+}
+.ex-link-primary{
+  color: @primary-color;
+}
+.ex-link-primary:hover{
+  color: lighten(@primary-color,20%);
+}
+.ex-link-error{
+  color: @error-color;
+}
+.ex-link-error:hover{
+  color: lighten(@error-color,20%);
+}
+
+.ex-link-default:disabled{
+  color: @default-color
+}
+
+.ex-link-info:disabled{
+  color: lighten(@info-color,20%);
+}
+
+.ex-link-primary:disabled{
+  color: lighten(@primary-color,20%);
+}
+
+.ex-link-error:disabled{
+  color: lighten(@error-color,20%);
+}
+
+
+.ex-radio{
+  width: 15px;
+  height: 15px;
+  border:2px solid @primary-color;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-bottom: 1px;
+}
+
+.ex-label{
+  color: @black-color;
+}
+////info
+.div-row{
+  display: inline;
+}
+
+.ex-hr{
+  border: 3px solid;
+  border-radius: 10px;
+}
+.ex-hr-primary{
+  border-color: @primary-color;
+}
+.ex-hr-info{
+  border-color: @info-color;
+}
+.ex-hr-default{
+  border-color: @default-color;
+}
+.ex-hr-error{
+  border-color: @error-color;
 }
