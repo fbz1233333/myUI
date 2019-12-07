@@ -41,6 +41,12 @@
     <ex-icon i="all"></ex-icon>
     <ex-icon i="auto"></ex-icon>
 
+    <ex-icon i="all" size="md"></ex-icon>
+    <ex-icon i="auto" size="md"></ex-icon>
+
+
+    <ex-icon i="all" size="lg"></ex-icon>
+    <ex-icon i="auto" size="lg"></ex-icon>
     <br>
 
     <ex-link>default链接</ex-link>
@@ -73,10 +79,17 @@
     <ex-input v-model="input_text" suf-icon="auto" size="md"></ex-input>
     <ex-input v-model="input_text" suf-icon="all" size="lg"></ex-input>
     <br>
-    <ex-hr type="default"></ex-hr>
-    <ex-hr type="primary"></ex-hr>
-    <ex-hr type="error"></ex-hr>
-    <ex-hr type="info"></ex-hr>
+    <ex-input v-model="input_text" pre="all" size="sm"></ex-input>
+    <ex-input v-model="input_text" pre="auto" size="md"></ex-input>
+    <ex-input v-model="input_text" pre="all" size="lg"></ex-input>
+    <br>
+    <ex-input v-model="input_text" suf="all" size="sm"></ex-input>
+    <ex-input v-model="input_text" suf="auto" size="md"></ex-input>
+    <ex-input v-model="input_text" suf="all" size="lg"></ex-input>
+<!--    <ex-hr type="default"></ex-hr>-->
+<!--    <ex-hr type="primary"></ex-hr>-->
+<!--    <ex-hr type="error"></ex-hr>-->
+<!--    <ex-hr type="info"></ex-hr>-->
 
     <ex-fake-radio ></ex-fake-radio>
     <ex-fake-radio checked></ex-fake-radio>
@@ -85,8 +98,17 @@
     <ex-fake-radio type="error"></ex-fake-radio>
     <ex-fake-radio type="error" checked></ex-fake-radio>
     <ex-fake-radio type="info"></ex-fake-radio>
-    <ex-fake-radio type="info" checked></ex-fake-radio>
+    <ex-fake-radio type="info" checked :changeable="false"></ex-fake-radio>
+<!--    被changeable=false的是不能变换的-->
+    <br>
+    <ex-slider type="default"></ex-slider>
+    <ex-slider type="error"></ex-slider>
+    <ex-slider type="primary"></ex-slider>
+    <ex-slider type="info"></ex-slider>
+    
+    <ex-button-drag></ex-button-drag>
 
+    <br>
   </div>
 
 </template>
@@ -108,7 +130,9 @@
             'ex-radio':exRadio,
             'ex-input':exInput,
             'ex-hr':exHr,
-            'ex-fake-radio':exFakeRadio
+            'ex-fake-radio':exFakeRadio,
+            'ex-slider':exSlider,
+            exButtonDrag
         }
     }
     import exButton from '@/components/ex-button'
@@ -119,6 +143,8 @@
     import exHr from '@/components/ex-hr'
     import exInput from '@/components/ex-input'
     import exFakeRadio from '@/components/ex-fake-radio'
+    import exSlider from '@/components/ex-slider'
+  import exButtonDrag from '@/components/ex-button-drag'
 </script>
 <style scoped>
 </style>

@@ -1,13 +1,20 @@
 <template>
+<!--  不能指定prop的值-->
   <div class="div-row">
-    <b @click="handleClick"
-       :class="[checked?'ex-fake-radio-checked':'ex-fake-radio-unchecked','ex-fake-radio','ex-fake-radio-'+type]"
-       :checked="checked">
-    </b>
+    <p @click="handleClick"
+       :class="[checkedData ? 'ex-fake-radio-checked':'ex-fake-radio-unchecked','ex-fake-radio','ex-fake-radio-'+type]"
+       :changeable="changeable"
+    >
+    </p>
   </div>
 </template>
 <script>
     export default {
+        data(){
+            return{
+                checkedData:this.checked
+            }
+        },
         props:{
             type:{
                 type:String,
@@ -23,10 +30,9 @@
             }
 
         },
-
         methods:{
             handleClick(){
-                if (this.changeable) this.checked=!this.checked
+                if (this.changeable) this.checkedData=!this.checkedData
             }
         },
     }

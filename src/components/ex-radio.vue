@@ -1,7 +1,6 @@
 <template>
 <div class="div-row">
 
-
 </div>
 
 </template>
