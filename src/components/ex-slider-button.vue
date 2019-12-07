@@ -1,25 +1,26 @@
 <template>
-  <div>
+  <ex-div-drag :baseX="1000" :baseY="1000" y-move-disabled>
     <button :class="['ex-slider-button','ex-slider-button-'+type]"
 
-            @click="handleClick"></button>
-  </div>
+    ></button>
+  </ex-div-drag>
 
 </template>
 <script>
 export default {
     methods:{
-        handleClick(e){
-            this.$emit('click',e)
-        }
     },
     props:{
         type:{
             type:String,
             default:'default',
         }
+    },
+    components:{
+        exDivDrag
     }
 }
+import exDivDrag from '@/components/ex-div-drag'
 
 </script>
 <style scoped>

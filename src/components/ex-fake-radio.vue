@@ -4,6 +4,8 @@
     <p @click="handleClick"
        :class="[checkedData ? 'ex-fake-radio-checked':'ex-fake-radio-unchecked','ex-fake-radio','ex-fake-radio-'+type]"
        :changeable="changeable"
+       @mouseover="handleMouseOver"
+       @mouseout="handleMouseOut"
     >
     </p>
   </div>
@@ -33,6 +35,12 @@
         methods:{
             handleClick(){
                 if (this.changeable) this.checkedData=!this.checkedData
+            },
+            handleMouseOut(){
+                this.$emit('mouseOut')
+            },
+            handleMouseOver(){
+              this.$emit('mouseOver')
             }
         },
     }

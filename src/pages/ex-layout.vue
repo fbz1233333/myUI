@@ -102,12 +102,16 @@
 <!--    被changeable=false的是不能变换的-->
     <br>
     <ex-slider type="default"></ex-slider>
-    <ex-slider type="error"></ex-slider>
-    <ex-slider type="primary"></ex-slider>
-    <ex-slider type="info"></ex-slider>
-    
-    <ex-button-drag></ex-button-drag>
-
+<!--    <ex-slider type="error"></ex-slider>-->
+<!--    <ex-slider type="primary"></ex-slider>-->
+<!--    <ex-slider type="info"></ex-slider>-->
+    <ex-button type="default" size="lg">右边三种drag</ex-button>
+    <ex-button-drag test>drag-button</ex-button-drag><br>
+    <ex-button-drag :baseX="900" :baseY="200">drag-button</ex-button-drag><br>
+    <ex-button-drag :baseX="900" :baseY="250" y-move-disabled>drag-button</ex-button-drag><br>
+    <ex-button-drag :baseX="800" :baseY="200" x-move-disabled>drag-button</ex-button-drag><br>
+<!--    <ex-div-drag test>test-div</ex-div-drag>-->
+<!--    <ex-fake-radio-drag></ex-fake-radio-drag>-->
     <br>
   </div>
 
@@ -132,7 +136,7 @@
             'ex-hr':exHr,
             'ex-fake-radio':exFakeRadio,
             'ex-slider':exSlider,
-            exButtonDrag
+            exButtonDrag,exFakeRadioDrag,exDivDrag
         }
     }
     import exButton from '@/components/ex-button'
@@ -145,6 +149,8 @@
     import exFakeRadio from '@/components/ex-fake-radio'
     import exSlider from '@/components/ex-slider'
   import exButtonDrag from '@/components/ex-button-drag'
+  import exFakeRadioDrag from '@/components/ex-fake-radio-drag'
+  import exDivDrag from '@/components/ex-div-drag'
 </script>
 <style scoped>
 </style>
