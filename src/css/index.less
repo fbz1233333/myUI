@@ -488,26 +488,6 @@
 .ex-slider-button-primary:hover{
   background: lighten(@primary-color,20%);
 }
-.ex-table{
-  width: 100%;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 12px;
-
-  border-color: @black-color;
-}
-.ex-table-head{
-  background: @border-color;
-}
-.ex-table-head-td{
-  font-size: @font-md;
-  font-family: @default-font-family-zh;
-}
-.ex-table-data{
-  background: @border-color;
-  font-family: @default-font-family-zh;
-
-}
 .ex-hover-tip{
   background: @black-color;
   color: @white-color;
@@ -515,4 +495,10 @@
   border-color: @black-color;
   border-radius: 20px;
   padding: 15px 10px 15px 25px
+}
+.ex-font-unselected{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }

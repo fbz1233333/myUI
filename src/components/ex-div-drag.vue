@@ -15,24 +15,50 @@
 <!--    {{x}}{{y}}<br>-->
 <!--    {{showX}}{{showY}}-->
     <div v-if="test_on"
-         class="ex-hover-tip" :style="{opacity: transparency+'%'}">
+         class="ex-hover-tip ex-font-unselected" :style="{opacity: transparency+'%'}">
       clicked:{{clicked}}
       hover:{{hover}}
       <!--    moveSignal:{{move_signal}}-->
       location:{{x}},{{y}}
       test_on:{{test_on}}
       test_signal:{{test_signal}}
+      transparent:{{transparency}}
     </div>
     <slot></slot>
-    <a v-if="test_signal" @click="ii">in</a>
+    <a v-if="test_signal" @click="ii">in{{test_on}}</a>
   </div>
 </template>
 <script>
     export default {
         methods:{
             ii(){
-                this.test_on=!this.test_on
-            },
+                let _this=this
+                if (this.transparency>=100){
+                    let interval=setInterval(function () {
+                            // console.log('当前透明度',_this.transparency)
+                            _this.transparency-=2
+                        if (_this.transparency<=0) {
+                            // console.log('over')
+                            _this.test_on=false
+                            clearInterval(interval)
+                            return
+                        }
+                    },10)
+                    // this.test_on=false
+                }else if (this.transparency<=0){
+                    _this.test_on=true
+                    let interval=setInterval(function () {
+                        // console.log('当前透明度',_this.transparency)
+                        _this.transparency+=2
+                        if (_this.transparency>=100) {
+                            // console.log('over')
+                            clearInterval(interval)
+                            return
+                        }
+                    },10)
+                    // this.test_on=false
+                }
+                },
             handleMouseLeave(e){
                 if (this.clicked) this.move(e)
             },
@@ -63,6 +89,7 @@
                 this.$emit('mouseout')
             },
             move(e){
+
                 let width=this.$refs.drag_div.clientWidth
                 let height=this.$refs.drag_div.clientHeight
                 let targetX=e.pageX-width/2
@@ -125,18 +152,13 @@
             }
         },
 
-        watch:{
-            transparency(val,oldval){
-                console.log('new val is',val)
-                console.log('old val is',oldval)
-            }
-        },
         data(){
 
             return{
-                transparency:0,
-                test_on:this.test,
+
+                test_on:false,
                 test_signal:this.test,
+                transparency:this.test_on?100:0,
                 clicked:false,
                 hover:false,
                 x:this.baseX,
@@ -145,6 +167,7 @@
 
         },
         computed:{
+
             min_x(){
                 // console.log(this.min_x)
                 return this.minX
