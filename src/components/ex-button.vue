@@ -1,6 +1,7 @@
 <template>
   <div class="div-row">
-    <button class="ex-button" :class="'ex-button-'+type+' ex-button-'+size "
+    <button :class="['ex-button','ex-button-'+type,'ex-button-'+size]"
+            :disabled="disabled"
             @mouseout="handleMouseOut"
             @mouseover="handleMouseOver">
       <p :class="'ex-font-'+size">
@@ -16,7 +17,7 @@
         methods:{
             handleMouseOver(){
                 this.hover=true
-                this.$emit('mouseOver')
+                this.$emit('mouseover')
             },
             handleMouseOut(){
                 this.hover=false
@@ -30,6 +31,14 @@
         },
         props:
             {
+                disabled:{
+                  type:Boolean,
+                  default:false
+                },
+                href:{
+                  type:String,
+                  default:'#'
+                },
                 type:{
                     type:String,
                     default:'default'
@@ -42,7 +51,7 @@
 
 
         mounted(){
-
+          // console.log(this.href)
 
         }
     }

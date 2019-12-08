@@ -23,7 +23,8 @@
     <ex-button  type="default" size="lg">default</ex-button>
     <ex-button  type="primary" size="lg">primary</ex-button>
     <ex-button  type="error" size="lg">error</ex-button>
-    <ex-button  type="info" size="lg">info</ex-button><br>
+    <ex-button  type="info" size="lg">info</ex-button>
+    <br>
     <ex-button  type="default" size="lg" disabled>default</ex-button>
     <ex-button  type="primary" size="lg" disabled>primary</ex-button>
     <ex-button  type="error" size="lg" disabled>error</ex-button>
@@ -86,10 +87,11 @@
     <ex-input v-model="input_text" suf="all" size="sm"></ex-input>
     <ex-input v-model="input_text" suf="auto" size="md"></ex-input>
     <ex-input v-model="input_text" suf="all" size="lg"></ex-input>
-<!--    <ex-hr type="default"></ex-hr>-->
-<!--    <ex-hr type="primary"></ex-hr>-->
-<!--    <ex-hr type="error"></ex-hr>-->
-<!--    <ex-hr type="info"></ex-hr>-->
+    <!--    <ex-hr type="default"></ex-hr>-->
+    <!--    <ex-hr type="primary"></ex-hr>-->
+    <!--    <ex-hr type="error"></ex-hr>-->
+    <!--    <ex-hr type="info"></ex-hr>-->
+
 
     <ex-fake-radio ></ex-fake-radio>
     <ex-fake-radio checked></ex-fake-radio>
@@ -99,21 +101,31 @@
     <ex-fake-radio type="error" checked></ex-fake-radio>
     <ex-fake-radio type="info"></ex-fake-radio>
     <ex-fake-radio type="info" checked :changeable="false"></ex-fake-radio>
-<!--    被changeable=false的是不能变换的-->
-    <br>
-    <ex-slider type="default"></ex-slider>
-<!--    <ex-slider type="error"></ex-slider>-->
-<!--    <ex-slider type="primary"></ex-slider>-->
-<!--    <ex-slider type="info"></ex-slider>-->
-    <ex-button type="default" size="lg">右边三种drag</ex-button>
-    <ex-button-drag test>drag-button</ex-button-drag><br>
-    <ex-button-drag :baseX="900" :baseY="200">drag-button</ex-button-drag><br>
-    <ex-button-drag :baseX="900" :baseY="250" y-move-disabled>drag-button</ex-button-drag><br>
-    <ex-button-drag :baseX="800" :baseY="200" x-move-disabled>drag-button</ex-button-drag><br>
 
-<!--    <ex-div-drag :baseX="700" :baseY="0" test @mouseover="over" @mouseout="out">info</ex-div-drag>-->
-<!--    <ex-div-drag test>test-div</ex-div-drag>-->
-<!--    <ex-fake-radio-drag></ex-fake-radio-drag>-->
+    <!--    被changeable=false的是不能变换的-->
+    <br>
+<!--    <ex-slider type="default"></ex-slider>-->
+    <!--    <ex-slider type="error"></ex-slider>-->
+    <!--    <ex-slider type="primary"></ex-slider>-->
+    <!--    <ex-slider type="info"></ex-slider>-->
+    <!--    <ex-button type="default" size="lg" href="drag">右边三种drag</ex-button>-->
+    <ex-div-drag :baseX="1200" :baseY="200"><ex-button type="error">drag-button(指定地址)</ex-button></ex-div-drag><br>
+<!--    <ex-button-drag :baseX="1000" :baseY="300" :maxX="1100" :maxY="500">drag-button</ex-button-drag><br>-->
+
+    <ex-div-drag :baseX="800" :baseY="250" y-move-disabled><ex-button type="primary">drag-button(禁止y轴移动)</ex-button></ex-div-drag><br>
+    <ex-div-drag :baseX="800" :baseY="200" x-move-disabled><ex-button type="info">drag-button(禁止x轴移动)</ex-button></ex-div-drag><br>
+    <ex-div-drag type="error" test><ex-button type="info">drag-button(指定地址)</ex-button></ex-div-drag>
+
+
+    <ex-div-drag :baseX="900" :baseY="400" test :minX="800" :maxX="1000" :maxY="500" :minY="300">
+      <ex-button type="primary">限制运动区间的div-drag</ex-button>
+    </ex-div-drag>
+
+
+
+    <!--    <ex-div-drag :baseX="700" :baseY="0" test @mouseover="over" @mouseout="out">info</ex-div-drag>-->
+    <!--    <ex-div-drag test>test-div</ex-div-drag>-->
+    <!--    <ex-fake-radio-drag></ex-fake-radio-drag>-->
     <br>
   </div>
 
@@ -158,9 +170,9 @@
     import exInput from '@/components/ex-input'
     import exFakeRadio from '@/components/ex-fake-radio'
     import exSlider from '@/components/ex-slider'
-  import exButtonDrag from '@/components/ex-button-drag'
-  import exFakeRadioDrag from '@/components/ex-fake-radio-drag'
-  import exDivDrag from '@/components/ex-div-drag'
+    import exButtonDrag from '@/components/ex-button-drag'
+    import exFakeRadioDrag from '@/components/ex-fake-radio-drag'
+    import exDivDrag from '@/components/ex-div-drag'
 </script>
 <style scoped>
 </style>

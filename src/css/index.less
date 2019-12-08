@@ -242,8 +242,7 @@
 
 
 .ex-input{
-  padding-left: 15px;
-  padding-right: 15px;
+
   margin: 6px;
   border: 1px solid @border-color;
   border-radius: 10px;
@@ -259,17 +258,23 @@
   cursor: not-allowed;
 }
 .ex-input-sm{
+  padding-left: 10px;
+  padding-right: 10px;
   height: 20px;
   width: 80px;
   font-size: @font-sm;
 }
 
 .ex-input-md{
+  padding-left: 10px;
+  padding-right: 10px;
   height: 30px;
   width: 150px;
   font-size: @font-md;
 }
 .ex-input-lg{
+  padding-left: 10px;
+  padding-right: 10px;
   height: 40px;
   width: 240px;
   font-size: @font-lg;
@@ -351,9 +356,9 @@
 
 }
 .ex-pre-reserve-lg{
-  margin-left: -45px ;
+  margin-left: -50px ;
 
-  padding-left: 50px;
+  padding-left: 55px;
 }
 
 .ex-icon-sm{
@@ -421,8 +426,8 @@
   border-top-right-radius: 10px;
   border-style:solid;
   border-width:1px;
-  border-color:@border-color;
-  color: @border-color;
+  border-color:@border-color2;
+  color: @border-color2;
   position: relative;
   vertical-align: middle;
 }
@@ -482,4 +487,32 @@
 }
 .ex-slider-button-primary:hover{
   background: lighten(@primary-color,20%);
+}
+.ex-table{
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 12px;
+
+  border-color: @black-color;
+}
+.ex-table-head{
+  background: @border-color;
+}
+.ex-table-head-td{
+  font-size: @font-md;
+  font-family: @default-font-family-zh;
+}
+.ex-table-data{
+  background: @border-color;
+  font-family: @default-font-family-zh;
+
+}
+.ex-hover-tip{
+  background: @black-color;
+  color: @white-color;
+  width: 250px;
+  border-color: @black-color;
+  border-radius: 20px;
+  padding: 15px 10px 15px 25px
 }

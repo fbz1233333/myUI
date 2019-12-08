@@ -8,8 +8,10 @@
 export default {
     methods:{
         handleClick(e){
-            console.log('clicked')
+            // console.log('clicked')
+            // this.$emit('click')
         }
+
     },
   props:{
     type:{
