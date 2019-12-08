@@ -1,8 +1,6 @@
 <template>
-  <ex-div-drag :baseX="1000" :baseY="1000" y-move-disabled>
-    <button :class="['ex-slider-button','ex-slider-button-'+type]"
-
-    ></button>
+  <ex-div-drag :baseX="0" y-move-disabled>
+    <button :class="['ex-slider-button','ex-slider-button-'+type]"></button>
   </ex-div-drag>
 
 </template>

@@ -110,6 +110,8 @@
     <ex-button-drag :baseX="900" :baseY="200">drag-button</ex-button-drag><br>
     <ex-button-drag :baseX="900" :baseY="250" y-move-disabled>drag-button</ex-button-drag><br>
     <ex-button-drag :baseX="800" :baseY="200" x-move-disabled>drag-button</ex-button-drag><br>
+
+<!--    <ex-div-drag :baseX="700" :baseY="0" test @mouseover="over" @mouseout="out">info</ex-div-drag>-->
 <!--    <ex-div-drag test>test-div</ex-div-drag>-->
 <!--    <ex-fake-radio-drag></ex-fake-radio-drag>-->
     <br>
@@ -118,6 +120,14 @@
 </template>
 <script>
     export default {
+        methods:{
+            over(){
+                console.log('h1')
+            },
+            out(){
+                console.log('h2')
+            }
+        },
         data(){
             return{
                 input_text:'',
