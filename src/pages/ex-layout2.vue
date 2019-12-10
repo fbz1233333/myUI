@@ -38,13 +38,21 @@
 <!--    <ex-button type="error" @click="change_if">change_if</ex-button>-->
 <!--    <ex-button type="primary" @click="change_show">change_show</ex-button>-->
 
+<!--    <br>-->
+<!--    <ex-button  v-show="if_show" v-if="if_if" type="primary" style="background-color: black;padding: 10px" v-fade>-->
+<!--      black-->
+<!--    </ex-button>-->
+<!--    <ex-button type="info" @click="change_if">change_if</ex-button>-->
+<!--    <ex-button type="primary" @click="change_show">change_show</ex-button>-->
+
     <br>
-    <ex-button  v-show="if_show" v-if="if_if" type="primary" style="background-color: black;padding: 10px" v-fade>
+    <ex-button  v-show="if_show" v-if="if_if" type="primary" style="background-color: black;padding: 10px" v-wide="5">
       black
     </ex-button>
     <ex-button type="info" @click="change_if">change_if</ex-button>
     <ex-button type="primary" @click="change_show">change_show</ex-button>
-    <!--  <ex-mark-1></ex-mark-1>-->
+<br>
+<!--    <div v-if="if_show" style="background-color: #66b1ff;padding: 20px;width: 20%;"></div>-->
 
   </div>
 </template>

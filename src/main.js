@@ -24,28 +24,41 @@ Vue.directive(
     }
   })
 Vue.directive('fade',{
+
   inserted(el,binding,vnode){
     console.log('inserted')
-
-    // console.log(el.style.opacity)
-    // el.style['opacity']=0
-    // console.log(trans)
   },
   bind(el,binding,vnode){
     console.log('bind')
-    // console.log(vnode)
   },
-  unbind(){
-    console.log('unbind')
+  unbind(el,binding,vnode){
+    // console.log('unbind')
+    // console.log(el)
   },
   componentUpdated(el,binding,vnode){
     let display=el.style.display
+    let timer=binding.value
     if (display==='none'){
-      el.style.display=''
-      trans.fade_out(el,9)
+      //实际上应该是有一瞬间component是显示的，但是太短了
+      // 如果延时操作就看见了 同样fade in也是
+      // setTimeout(()=>{
+      // console.log(binding)
+      trans.fade_out(el,timer)
+      // },3000)
+
     }else{
-      trans.fade_in(el,9)
+      trans.fade_in(el,timer)
     }
+  }
+})
+
+Vue.directive('wide',{
+  componentUpdated(el,binding,vnode){
+    let timer=binding.value
+    trans.wider(el,timer)
+  },
+  inserted(el,binding,vnode){
+    // console.log(el)
   }
 })
 //directive完成

@@ -1,5 +1,5 @@
 <template>
-<div v-show="real_show"  :style="{width: width_per+'%',height:'30%'}">
+<div v-show="real_show"  :style="{width: width_per+'%'}">
 <!--    {{width_per}}-->
     <slot></slot>
 </div>
