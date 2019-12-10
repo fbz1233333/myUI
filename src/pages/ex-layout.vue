@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ex-button  type="default">default</ex-button>
+    <ex-button  type="default" >default</ex-button>
     <ex-button  type="primary">primary</ex-button>
     <ex-button  type="error">error</ex-button>
     <ex-button  type="info">info</ex-button>
@@ -109,12 +109,12 @@
     <!--    <ex-slider type="primary"></ex-slider>-->
     <!--    <ex-slider type="info"></ex-slider>-->
     <!--    <ex-button type="default" size="lg" href="drag">右边三种drag</ex-button>-->
-    <ex-div-drag :baseX="1200" :baseY="200"><ex-button type="error">drag-button(指定地址)</ex-button></ex-div-drag><br>
+    <ex-div-drag :baseX="400" :baseY="795"><ex-button type="error">drag-button(指定地址)</ex-button></ex-div-drag><br>
 <!--    <ex-button-drag :baseX="1000" :baseY="300" :maxX="1100" :maxY="500">drag-button</ex-button-drag><br>-->
 
     <ex-div-drag :baseX="800" :baseY="250" y-move-disabled><ex-button type="primary">drag-button(禁止y轴移动)</ex-button></ex-div-drag><br>
     <ex-div-drag :baseX="800" :baseY="200" x-move-disabled><ex-button type="info">drag-button(禁止x轴移动)</ex-button></ex-div-drag><br>
-    <ex-div-drag type="error" test><ex-button type="info">drag-button(指定地址)</ex-button></ex-div-drag>
+    <ex-div-drag type="error" test><ex-button type="info">drag-button(不指定地址)</ex-button></ex-div-drag>
 
 
     <ex-div-drag :baseX="900" :baseY="400" test :minX="800" :maxX="1000" :maxY="500" :minY="300">
@@ -123,16 +123,17 @@
 
 
 
-    <!--    <ex-div-drag :baseX="700" :baseY="0" test @mouseover="over" @mouseout="out">info</ex-div-drag>-->
-    <!--    <ex-div-drag test>test-div</ex-div-drag>-->
-    <!--    <ex-fake-radio-drag></ex-fake-radio-drag>-->
-    <br>
+
+
+
+
   </div>
 
 </template>
 <script>
     export default {
         methods:{
+
             over(){
                 console.log('h1')
             },
@@ -158,8 +159,11 @@
             'ex-hr':exHr,
             'ex-fake-radio':exFakeRadio,
             'ex-slider':exSlider,
-            exButtonDrag,exFakeRadioDrag,exDivDrag
-        }
+            exButtonDrag,exFakeRadioDrag,exDivDrag,
+
+            exMark1
+        },
+
     }
     import exButton from '@/components/ex-button'
     import exCircleButton from '@/components/ex-button-circle'
@@ -173,6 +177,9 @@
     import exButtonDrag from '@/components/ex-button-drag'
     import exFakeRadioDrag from '@/components/ex-fake-radio-drag'
     import exDivDrag from '@/components/ex-div-drag'
+
+    import exMark1 from '@/components/ex-mark-1'
+
 </script>
 <style scoped>
 </style>

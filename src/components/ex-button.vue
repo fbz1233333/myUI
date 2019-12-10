@@ -1,10 +1,11 @@
 <template>
-  <div class="div-row">
+  <div class="div-row" >
     <button :class="['ex-button','ex-button-'+type,'ex-button-'+size]"
             :disabled="disabled"
+            @click="handleClick"
             @mouseout="handleMouseOut"
             @mouseover="handleMouseOver">
-      <p :class="'ex-font-'+size">
+      <p :class="['ex-font-'+size ,'ex-font-unselected']">
         <slot></slot>
       </p>
     </button>
@@ -14,7 +15,15 @@
 </template>
 <script>
     export default{
+        //
+        // updated(){
+        //     console.log('this is updated')
+        // },
+        //一共6个 说明他们也updated了
         methods:{
+            handleClick(){
+              this.$emit('click')
+            },
             handleMouseOver(){
                 this.hover=true
                 this.$emit('mouseover')
@@ -29,6 +38,7 @@
                 hover:false
             }
         },
+
         props:
             {
                 disabled:{
@@ -52,7 +62,6 @@
 
         mounted(){
           // console.log(this.href)
-
         }
     }
 </script>

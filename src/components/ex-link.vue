@@ -1,7 +1,10 @@
 <template>
-<button :class="'ex-link ex-link-'+type" @click="handleHref(href)">
-  <slot></slot>
-</button>
+  <div class="div-row">
+    <button :class="'ex-link ex-link-'+type" @click="handleHref(href)">
+      <slot></slot>
+    </button>
+  </div>
+
 </template>
 <script>
 export default {

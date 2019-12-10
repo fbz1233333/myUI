@@ -14,7 +14,7 @@
 <!--   {{baseX}}{{baseY}}<br>-->
 <!--    {{x}}{{y}}<br>-->
 <!--    {{showX}}{{showY}}-->
-    <div v-if="test_on"
+    <div v-show="test_on"
          class="ex-hover-tip ex-font-unselected" :style="{opacity: transparency+'%'}">
       clicked:{{clicked}}
       hover:{{hover}}
@@ -25,7 +25,7 @@
       transparent:{{transparency}}
     </div>
     <slot></slot>
-    <a v-if="test_signal" @click="ii">in{{test_on}}</a>
+    <a v-show="test_signal" @click="ii">in{{test_on}}</a>
   </div>
 </template>
 <script>
@@ -108,6 +108,7 @@
             }
         },
         props:{
+
             //x  y表示左上坐标
             //所有minx miny maxx maxy都表示左上坐标
             minX:{
@@ -144,11 +145,11 @@
             },
             baseX:{
                 type:Number,
-                default:1500
+                // default:1500
             },
             baseY:{
                 type:Number,
-                default:0
+                // default:0
             }
         },
 

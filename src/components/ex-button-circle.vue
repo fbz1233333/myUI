@@ -1,8 +1,11 @@
 <template>
+  <div class="div-row">
 
-  <button class="ex-button" :class="'ex-button-'+type">
-    <slot></slot>
-  </button>
+    <button class="ex-button" :class="'ex-button-'+type">
+      <slot></slot>
+    </button>
+  </div>
+
 
 </template>
 <script>

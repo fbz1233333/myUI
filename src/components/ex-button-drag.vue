@@ -1,10 +1,13 @@
 <template>
 
-<ex-div-drag :test="test" :baseX="baseX" :baseY="baseY" :xMoveDisabled="xMoveDisabled" :yMoveDisabled="yMoveDisabled">
-  <ex-button>
-    <slot></slot>
-  </ex-button>
-</ex-div-drag>
+  <div class="div-row">
+    <ex-div-drag :test="test" :baseX="baseX" :baseY="baseY" :xMoveDisabled="xMoveDisabled" :yMoveDisabled="yMoveDisabled">
+      <ex-button>
+        <slot></slot>
+      </ex-button>
+    </ex-div-drag>
+  </div>
+
 </template>
 <script>
     export default {

@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/pages/index'
-import layout from '@/pages/layout'
-import exlayout from '@/pages/ex-layout'
+import exlayout from '@/pages/ex-layout2'
 
 Vue.use(Router)
 

@@ -4,13 +4,14 @@
     <button v-if="pre!==''" disabled :class="['ex-pre-button','ex-pre-button-'+size]">
       <ex-icon :i="pre" :class="'ex-icon-'+size"></ex-icon>
     </button>
-    <ex-icon :i="preIcon" v-if="preIcon!==''" :size="size"
-             :class="['ex-pre-icon', 'ex-pre-icon-'+size]"></ex-icon>
+
     <input class="ex-input"
            :class="['ex-reserve','ex-input-'+size,preIcon==''?'':'ex-pre-reserve-'+size,'ex-pre-reserve',sufIcon==''?'':'ex-suf-reserve-'+size]"
            :disabled="disabled"
            :clearable="clearable"
            @input="input">
+    <ex-icon :i="preIcon" v-if="preIcon!==''" :size="size"
+             :class="['ex-pre-icon', 'ex-pre-icon-'+size]"></ex-icon>
     <ex-icon :i="sufIcon" v-if="sufIcon!==''" :size="size"
              :class="['ex-suf-icon', 'ex-suf-icon-'+size]"></ex-icon>
     <button v-if="suf!==''" disabled :class="['ex-suf-button','ex-suf-button-'+size]">
