@@ -41,7 +41,7 @@
                             // console.log('over')
                             _this.test_on=false
                             clearInterval(interval)
-                            return
+                            // return
                         }
                     },10)
                     // this.test_on=false
@@ -53,7 +53,7 @@
                         if (_this.transparency>=100) {
                             // console.log('over')
                             clearInterval(interval)
-                            return
+                            // return
                         }
                     },10)
                     // this.test_on=false

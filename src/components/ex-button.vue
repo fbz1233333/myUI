@@ -30,7 +30,7 @@
             },
             handleMouseOut(){
                 this.hover=false
-                this.$emit('mouseOut')
+                this.$emit('mouseout')
             }
         },
         data(){

@@ -25,19 +25,23 @@ Vue.directive(
   })
 Vue.directive('fade',{
 
-  inserted(el,binding,vnode){
-    console.log('inserted')
-  },
-  bind(el,binding,vnode){
-    console.log('bind')
-  },
-  unbind(el,binding,vnode){
-    // console.log('unbind')
-    // console.log(el)
-  },
+  // inserted(el,binding,vnode){
+  //   console.log('inserted')
+  // },
+  // bind(el,binding,vnode){
+  //   console.log('bind')
+  // },
+  // unbind(el,binding,vnode){
+  //   // console.log('unbind')
+  //   // console.log(el)
+  // },
   componentUpdated(el,binding,vnode){
     let display=el.style.display
     let timer=binding.value
+    // console.log(timer)
+    if(timer===undefined){
+      timer=10
+    }
     if (display==='none'){
       //实际上应该是有一瞬间component是显示的，但是太短了
       // 如果延时操作就看见了 同样fade in也是
@@ -59,6 +63,36 @@ Vue.directive('wide',{
   },
   inserted(el,binding,vnode){
     // console.log(el)
+  }
+})
+
+Vue.directive('high',{
+  componentUpdated(el,binding,vnode){
+    let timer=binding.value
+    trans.higher(el,timer)
+  },
+  inserted(el,binding,vnode){
+    // console.log(el)
+  }
+})
+
+Vue.directive('drag',{
+  inserted(el,binding,vnode){
+    el.onmousedown=e=>{
+      el.onmousemove=(e)=>{
+        trans.move(el,e)
+      }
+      // el.onwheel
+    }
+    el.onwheel=e=>{
+      // trans.move(el,e)
+      trans.move(el,e)
+    }
+    el.onmouseup=e=>{
+      // el.onmousedown=null
+      el.onmousemove=null
+    }
+
   }
 })
 //directive完成

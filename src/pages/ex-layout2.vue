@@ -33,32 +33,66 @@
     <ex-button @click="handleChange3" type="primary">change3</ex-button>
     <br>
 
+
 <!--    <ex-button type="info" v-show="if_show" v-if="if_if">{{info}}</ex-button>-->
-<!--    <label>button_info</label><ex-input v-model="info"></ex-input>-->
+<!--    <label>button_info</label><ex-input v-model="info" placeholder="....."></ex-input>-->
 <!--    <ex-button type="error" @click="change_if">change_if</ex-button>-->
 <!--    <ex-button type="primary" @click="change_show">change_show</ex-button>-->
 
 <!--    <br>-->
-<!--    <ex-button  v-show="if_show" v-if="if_if" type="primary" style="background-color: black;padding: 10px" v-fade>-->
+<!--    <ex-button  v-show="if_show" v-if="if_if" type="primary" style="background-color: black;padding: 10px" v-fade="10">-->
 <!--      black-->
 <!--    </ex-button>-->
 <!--    <ex-button type="info" @click="change_if">change_if</ex-button>-->
 <!--    <ex-button type="primary" @click="change_show">change_show</ex-button>-->
 
-    <br>
-    <ex-button  v-show="if_show" v-if="if_if" type="primary" style="background-color: black;padding: 10px" v-wide="5">
-      black
-    </ex-button>
-    <ex-button type="info" @click="change_if">change_if</ex-button>
-    <ex-button type="primary" @click="change_show">change_show</ex-button>
-<br>
-<!--    <div v-if="if_show" style="background-color: #66b1ff;padding: 20px;width: 20%;"></div>-->
+<!--    <br>-->
 
+<!--      <ex-button  v-show="if_show" v-if="if_if" type="primary" style="padding: 10px;background-color: black" v-wide="5">-->
+<!--        black-->
+<!--      </ex-button>-->
+
+<!--    <ex-button type="info" @click="change_if">change_if</ex-button>-->
+<!--    <ex-button type="primary" @click="change_show">change_show</ex-button>-->
+
+
+<!--    <br>-->
+
+
+
+<!--    <ex-button  v-show="if_show" v-if="if_if" type="primary" style="padding: 10px;background-color: black" v-high="5">-->
+<!--      black-->
+<!--    </ex-button>-->
+<!--    <ex-button type="info" @click="change_if">change_if</ex-button>-->
+<!--    <ex-button type="primary" @click="change_show">change_show</ex-button>-->
+<!--    <br>-->
+
+
+
+
+    <div style="padding: 10px;background-color: black;display: inline-block;" v-drag>
+      <ex-button type="primary">change4</ex-button>
+    </div>
+
+
+<!--    <ex-button v-drag>button2</ex-button>-->
+
+    <br>
+    <br>
+<!--    <ex-button type="primary">change5</ex-button>-->
+    <ex-button @mouseover="change5=true" @mouseout="change5=false"  @click="change5=!change5" type="info">change5</ex-button>
+
+    <ex-tooltip v-show="change5" v-fade>
+      this is the tip which is confirmed as a hovered style
+    </ex-tooltip>
   </div>
 </template>
 <script>
     export default {
         methods:{
+            h5(){
+              this.change5=!this.change5
+            },
             change_if(){
               this.if_if=!this.if_if
             },
@@ -82,10 +116,12 @@
             exDivWider,
             exDivHigher,
             exButton,
-            exInput
+            exInput,
+            exTooltip
         },
         data(){
             return{
+                change5:true,
                 if_if:true,
                 if_show:true,
                 info:'info',
@@ -124,6 +160,7 @@
 
     import exTable from '@/components/ex-table'
     import exInput from '@/components/ex-input'
+  import exTooltip from '@/components/ex-tooltip'
 
 </script>
 <style scoped>
