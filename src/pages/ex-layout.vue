@@ -126,6 +126,7 @@
 
 
 
+    {{params}}
 
   </div>
 
@@ -148,6 +149,13 @@
                 c:false,
                 city:"beijing"
             }
+        },
+        computed:{
+          params(){
+              console.log(this.$route.params)
+              console.log(this.$route.query.info)
+              return this.$route.params
+          }
         },
         components:{
             'ex-button':exButton,

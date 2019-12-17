@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <ex-div-fade :show="div_show">
       <div style="background: black;width: 200px;color: white;padding: 10px;border-radius: 20px">
         this is how to change the property 'show' of the 'div_fade' can present as a fading in or fading out styles
@@ -79,19 +80,41 @@
 
     <br>
     <br>
-<!--    <ex-button type="primary">change5</ex-button>-->
-    <ex-button @mouseover="change5=true" @mouseout="change5=false"  @click="change5=!change5" type="info">change5</ex-button>
+    <ex-tooltip>
+      <div slot="tip" >tip</div>
+      <div slot="component" style="background-color: grey;padding: 10px;display: inline-block">
+        <ex-button type="primary">component</ex-button>
 
-    <ex-tooltip v-show="change5" v-fade>
-      this is the tip which is confirmed as a hovered style
+      </div>
     </ex-tooltip>
+
+    <br>
+    <ex-tooltip mode="fixed">
+      <div slot="tip" >tip</div>
+      <div slot="component" style="background-color: grey;padding: 10px;display: inline-block">
+        <ex-button type="primary">component-fixed</ex-button>
+
+      </div>
+    </ex-tooltip>
+    <br>
+    <ex-table :data="tableData" :columns="columns"></ex-table>
+<!--    <ex-button type="primary">change5</ex-button>-->
+
+<!--    hover{{change5}}-->
+
+
   </div>
 </template>
 <script>
     export default {
         methods:{
             h5(){
-              this.change5=!this.change5
+                if (!this.lock){
+                    this.lock=true
+                    this.change5=!this.change5
+                    this.lock=false
+                }
+
             },
             change_if(){
               this.if_if=!this.if_if
@@ -121,6 +144,7 @@
         },
         data(){
             return{
+                lock:false,
                 change5:true,
                 if_if:true,
                 if_show:true,
@@ -138,6 +162,16 @@
                         id: 2,
                         name:'fbz',
                         pass:'456789'
+                    },
+                    {
+                        id: 3,
+                        name: 'gx',
+                        pass:'ssssss'
+                    },
+                    {
+                        id: 5,
+                        name:'gzl',
+                        pass:'456282'
                     }
                 ],
                 columns:[
@@ -148,6 +182,10 @@
                     {
                         title: '用户名',
                         column:'name'
+                    },
+                    {
+                        title:'密码',
+                        column:'pass'
                     }
                 ],
             }

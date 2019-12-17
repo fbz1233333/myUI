@@ -6,6 +6,18 @@ import router from './router'
 
 import trans from './directives/test'
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+import store1 from './store/store'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+const store=new Vuex.Store({
+  modules:{
+    store1
+  }
+})
+Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 Vue.directive(
@@ -24,7 +36,6 @@ Vue.directive(
     }
   })
 Vue.directive('fade',{
-
   // inserted(el,binding,vnode){
   //   console.log('inserted')
   // },
@@ -42,14 +53,9 @@ Vue.directive('fade',{
     if(timer===undefined){
       timer=10
     }
-    if (display==='none'){
+   if (display==='none'){
       //实际上应该是有一瞬间component是显示的，但是太短了
-      // 如果延时操作就看见了 同样fade in也是
-      // setTimeout(()=>{
-      // console.log(binding)
       trans.fade_out(el,timer)
-      // },3000)
-
     }else{
       trans.fade_in(el,timer)
     }
@@ -100,7 +106,7 @@ Vue.directive('drag',{
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+  router,store,
   render:h=>h(App),
 
 })

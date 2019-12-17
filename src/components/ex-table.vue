@@ -1,18 +1,23 @@
 <template>
+  <div style="border: 0 solid black;padding: 10px">
 
-  <table class="ex-table ">
-    <th class="ex-table-head" v-for="item in resultTitle">
-      <td class="ex-table-head-td">{{item}}</td>
-    </th>
-    <tr  class="ex-table-data" v-for="item in resultData">
-      <td v-for="(value,key,index) in item">{{value}}</td>
-    </tr>
-  </table>
+    <div v-for="i in dataColumns" class="div-row" :style="{width: 100/length +'%'}">
+      <ul style="list-style-type: none" >
+        <li v-for="j in i">
+          {{j}}
+          <hr>
+        </li>
+      </ul>
+    </div>
+
+<!--{{resultData }}-->
+<!--    {{resultTitle}}-->
+  </div>
 </template>
 <script>
 export default {
     props:{
-        tableData:{
+        data:{
             type:Array,
             required:true,
             default:[]
@@ -23,71 +28,40 @@ export default {
             default: []
         }
     },
-    methods:{
-        obj_filter(params,keys){
-            // let params = { id: '关于我们', name: '新手购物', pass: '客户服务' }
-            let obj={}
-            //想返回一个仅包含id和name的对象
-            // let keys=['id','name']
-            for(let key in params){
-                if (keys.includes(key)){
-                    // console.log(params[key])
-                    this.$set(obj,key,params[key])
-                }
-            }
-            // console.log(obj)
-            return obj
-        },
-        array_obj_filter(array,columns){
-            let keys=[]
-            for(let i=0;i<columns.length;i++){
-                keys.push(columns[i].column)
-            }
-            // console.log(keys)
-            // console.log('keys is',keys)
-            let resultData=[]
-            for(let i=0;i<array.length;i++){
-
-                resultData.push(this.obj_filter(array[i],keys))
-
-            }
-            // console.log(keys)
-            return resultData
-        },
-
-        array_field_filter(columns,key){
-            let results=[]
-
-            for(let i=0;i<columns.length;i++){
-                // console.log(columns[i])
-                results.push(columns[i][key])
-            }
-            // console.log(titles)
-            return results
+    data(){
+        return{
+            length:0
         }
     },
     computed:{
-        resultData(){
-            let array=this.tableData
-            let columns=this.columns
-            // console.log(array)
-            // console.log('columns info is',columns)
-            // let c=array[0].key
-            // let keys=Object.keys(array[0])
+        dataColumns() {
+            let keys = Object.keys(this.data)
+            // console.log(this.data[j].id)
 
-            return this.array_obj_filter(array,columns)
-        },
-        resultTitle(){
-            let columns=this.columns
-            let key='title'
+            let array2=[]
+            for (let k = 0; k < this.columns.length; k++) {
+                let array = []
+                array.push(this.columns[k].title)
+                for (let i = 0; i < this.data.length; i++) {
+                    array.push(this.data[i][this.columns[k].column])
+                }
+                // console.log(array)
+                array2.push(array)
+            }
+            this.length=array2.length
+            return array2
 
-            return this.array_field_filter(columns,key)
+
 
         }
     },
+
     mounted(){
     }
 }
 </script>
 <style scoped>
+  li:hover{
+    background-color:#d3dce6;
+  }
 </style>

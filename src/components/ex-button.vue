@@ -26,11 +26,11 @@
             },
             handleMouseOver(){
                 this.hover=true
-                this.$emit('mouseover')
+                // this.$emit('mouseover')
             },
             handleMouseOut(){
                 this.hover=false
-                this.$emit('mouseout')
+                // this.$emit('mouseout')
             }
         },
         data(){

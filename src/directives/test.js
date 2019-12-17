@@ -13,7 +13,6 @@ export default {
     },timer)
   },
   fade_out(el,timer){
-    // console.log('fading out')
     el.style.display=''
     let opacity=1
     let change=-0.02
