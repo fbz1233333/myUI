@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+    function draw() {
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+        ctx.save()
+        // for(var i=0;i<6;i++){
+        //     ctx.fillStyle=getStyle(51*i,255-51*i,255,1-0.1*i)
+        //     ctx.fillRect(10*i,10*i,10*i,200*i)
+        //     // ctx.fillRect(10*i,10*i,200*i,10*i)
+        //
+        // }
+        var j=10
+
+        var cWidth=window.innerWidth
+        var cHeight=window.innerHeight
+
+        console.log(cWidth)
+        console.log(cHeight)
+        var a=getArray(j-1,cWidth);
+        var b=getArray2(j-1,cHeight)
+
+        console.log(a)
+        console.log(b)
+        var height=100
+
+        for (var i=0;i<j-1;i++){
+            fillParallelogram(ctx,a[i],b[i],a[i],b[i]+height,a[i+1],b[i+1],a[i+1],b[i+1]+height)
+        }
+        ctx.restore()
+
+    }
+
+    function fillParallelogram(ctx,a1,a2,a3,a4,a5,a6,a7,a8){
+        fillAngle(ctx,a1,a2,a3,a4,a5,a6)
+        fillAngle(ctx,a5,a6,a7,a8,a1,a2)
+    }
+    function fillAngle(ctx,a,b,c,d,e,f) {
+        ctx.beginPath()
+        ctx.moveTo(a,b)
+        ctx.lineTo(c,d)
+        ctx.lineTo(e,f)
+        ctx.closePath()
+
+        ctx.fillStyle=getStyle(15,20,15,Math.random())
+        ctx.fill()
+    }
+
+    function getStyle(r,g,b,a) {
+        return 'rgba(' + r + ', ' + g + ','+ b+','+a+')';
+    }
+    function random(max) {
+        return Math.round(Math.random()*max);
+    }
+    function getArray(j,max) {
+        var a=[]
+        a.push(0)
+        for(var i=0;i<j-1;i++){
+            a.push(random(max))
+        }
+        a.sort((k,v)=>{
+            return k-v
+        })
+        a.push(max)
+        return a
+    }
+    function getArray2(j,max) {
+        var a=[]
+        for(var i=0;i<j+1;i++){
+            a.push(random(max))
+        }
+        return a
+    }
+  </script>
+</head>
+<body onload="draw()">
+<canvas id="canvas" width="1904" height="900"></canvas>
+
+</body>
+</html>

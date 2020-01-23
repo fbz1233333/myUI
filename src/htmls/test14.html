@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+    function draw() {
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+        var cWidth=document.body.scrollWidth
+        var cHeight=document.body.scrollHeight
+
+        let max=50
+        let timeout=100
+        let maxWidth=4
+        let maxHeight=100
+        let interval=setInterval(()=>{
+            ctx.clearRect(0,0,cWidth,cHeight)
+            for(let i=0;i<max;i++){
+                // ctx.fillStyle=getStyle(random(255),random(255),random(255),Math.random())
+                ctx.fillRect(random(cWidth),random(cHeight),random(maxWidth),random(maxHeight))
+            }
+        },timeout)
+
+    }
+
+
+    function fillParallelogram(ctx,a1,a2,a3,a4,a5,a6,a7,a8){
+        fillAngle(ctx,a1,a2,a3,a4,a5,a6)
+        fillAngle(ctx,a5,a6,a7,a8,a1,a2)
+    }
+    function fillAngle(ctx,a,b,c,d,e,f) {
+        ctx.beginPath()
+        ctx.moveTo(a,b)
+        ctx.lineTo(c,d)
+        ctx.lineTo(e,f)
+        ctx.closePath()
+
+        ctx.fillStyle=getStyle(random(255),random(255),random(255),Math.random())
+        ctx.fill()
+    }
+
+    function getStyle(r,g,b,a) {
+        return 'rgba(' + r + ', ' + g + ','+ b+','+a+')';
+    }
+    function random(max) {
+        return Math.round(Math.random()*max);
+    }
+    function getArray(j,max) {
+        var a=[]
+        a.push(0)
+        for(var i=0;i<j-1;i++){
+            a.push(random(max))
+        }
+        a.sort((k,v)=>{
+            return k-v
+        })
+        a.push(max)
+        return a
+    }
+    function getArray2(j,max) {
+        var a=[]
+        for(var i=0;i<j+1;i++){
+            a.push(random(max))
+        }
+        return a
+    }
+  </script>
+</head>
+<body onload="draw()">
+<canvas id="canvas" width="1904" height="900">
+</canvas>
+</body>
+</html>

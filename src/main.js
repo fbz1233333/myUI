@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
 import trans from './directives/test'
 
 import ElementUI from 'element-ui';
@@ -11,6 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 import store1 from './store/store'
 import Vuex from 'vuex'
+import el from "element-ui/src/locale/lang/el";
 Vue.use(Vuex)
 const store=new Vuex.Store({
   modules:{
@@ -53,9 +53,11 @@ Vue.directive('fade',{
     if(timer===undefined){
       timer=10
     }
+
+    //试试至淡如不淡出的效果
    if (display==='none'){
       //实际上应该是有一瞬间component是显示的，但是太短了
-      trans.fade_out(el,timer)
+      // trans.fade_out(el,timer)
     }else{
       trans.fade_in(el,timer)
     }
@@ -103,10 +105,19 @@ Vue.directive('drag',{
 })
 //directive完成
 
+
+router.beforeEach((to,from,next)=>{
+  // console.log(to)
+  window.document.title=to.meta.title
+  next()
+  //必须调用这个方法才能进入下一个钩子
+
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,store,
+  store,router,
   render:h=>h(App),
 
 })

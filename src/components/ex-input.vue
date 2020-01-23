@@ -1,6 +1,6 @@
 <template>
   <div class="div-row">
-<!--    绝对布局的要诀-->
+    <!--    绝对布局的要诀-->
 
 
     <input class="ex-input"
@@ -8,6 +8,7 @@
            :class="['ex-reserve','ex-input-'+size,preIcon==''&& pre==''?'':'ex-pre-reserve-'+size,'ex-pre-reserve',sufIcon==''&& suf==''?'':'ex-suf-reserve-'+size]"
            :disabled="disabled"
            :clearable="clearable"
+           :value="value"
            @input="input">
     <ex-icon :i="preIcon" v-if="preIcon!==''" :size="size"
              :class="['ex-pre-icon', 'ex-pre-icon-'+size]"></ex-icon>
@@ -24,62 +25,70 @@
   </div>
 </template>
 <script>
-  import exButton from '@/components/ex-button'
-export default {
+    import exButton from '@/components/ex-button'
+    export default {
 
-  props:{
-      placeholder:{
-        type:String,
-        default:''
-      },
-      pre:{
-        type:String,
-        default:''
-      },
-      suf:{
-        type:String,
-          default:""
-      },
-      preIcon:{
-          type:String,
-          default:''
-      },
-      sufIcon:{
-          type:String,
-          default:''
-      },
-      disabled:{
-          type:Boolean,
-          default:false
-      },
-      clearable:{
-        type:Boolean,
-        default:false
-      },
-      size:{
-          type:String,
-          default:'md'
-      },
-      type:{
-          type:String,
-          default:"text"
-      }
-  },
-    methods:{
-      input(e){
-          this.$emit('input',e.target.value)
-          // console.log('input')
-      }
 
-    },
-    components:{
-        'ex-button':exButton,
+        props:{
+            placeholder:{
+                type:String,
+                default:''
+            },
+            pre:{
+                type:String,
+                default:''
+            },
+            suf:{
+                type:String,
+                default:""
+            },
+            preIcon:{
+                type:String,
+                default:''
+            },
+            sufIcon:{
+                type:String,
+                default:''
+            },
+            disabled:{
+                type:Boolean,
+                default:false
+            },
+            clearable:{
+                type:Boolean,
+                default:false
+            },
+            size:{
+                type:String,
+                default:'md'
+            },
+            type:{
+                type:String,
+                default:"text"
+            },
+            value:{
+                type:String,
+                default:""
+            }
+        },
+        methods:{
+            input(e){
+                this.$emit('input',e.target.value)
+                // console.log('input')
+            }
 
-      'ex-icon':exIcon
-    },
+        },
+        components:{
+            'ex-button':exButton,
 
-}
-import exIcon from '@/components/ex-icon'
+            'ex-icon':exIcon
+        },
+
+        mounted(){
+            console.log(this.value)
+        }
+    }
+    import exIcon from '@/components/ex-icon'
 </script>
 <style scoped>
 </style>

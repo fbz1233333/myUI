@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+      function draw() {
+          var canvas = document.getElementById('canvas');
+          if (canvas.getContext){
+              var ctx = canvas.getContext('2d');
+              //
+              // var rectangle = new Path2D();
+              // rectangle.rect(10, 10, 50, 50);
+              //
+              // var circle = new Path2D();
+              // circle.moveTo(125, 35);
+              // circle.arc(100, 35, 25, 0, 2 * Math.PI);
+              //
+              // ctx.stroke(rectangle);
+              // ctx.fill(circle);
+              // var p=new Path2D("M10 10 h 80 v 80 h -80 Z")
+              // ctx.fill(p)
+
+              ctx.fillStyle = '#FD0';
+              ctx.fillRect(0,0,75,75);
+              ctx.fillStyle = '#6C0';
+              ctx.fillRect(75,0,75,75);
+              ctx.fillStyle = '#09F';
+              ctx.fillRect(0,75,75,75);
+              ctx.fillStyle = '#F30';
+              ctx.fillRect(75,75,75,75);
+              ctx.fillStyle = '#FFF';
+
+              ctx.globalAlpha=0.2
+              for (var  i=0;i<7;i++){
+                  ctx.beginPath()
+                  ctx.arc(75,75,10*(1+i),0,Math.PI*2,true)
+                  ctx.fill()
+              }
+          }
+      }
+
+  </script>
+</head>
+<body onload="draw()">
+<canvas id="canvas" width="600" height="600"></canvas>
+</body>
+</html>

@@ -1,8 +1,19 @@
 import axios from 'axios'
+import da from "element-ui/src/locale/lang/da";
 export default {
   state:{
-
-},
+    breadcrumb:[]
+  },
+  getters:{
+    getBreadCrumb(state){
+      return state.breadcrumb
+    }
+  },
+  mutations:{
+    setBreadCrumb(state,data){
+      state.breadcrumb=data
+    }
+  },
   actions:{
     login(context,form1){
       // console.log(form1.name)

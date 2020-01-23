@@ -115,6 +115,9 @@ export default {
     el.style.position='absolute'
     el.style.left=e.pageX-el.offsetWidth/2+'px'
     el.style.top=e.pageY-el.offsetHeight/2+'px'
-  }
+  },
+
 
 }
+
+import vuex from 'vuex'

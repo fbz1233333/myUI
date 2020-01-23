@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+      function draw() {
+          var canvas = document.getElementById('canvas')
+          var ctx = canvas.getContext('2d')
+          var cWidth=document.body.scrollWidth
+          var cHeight=document.body.scrollHeight
+
+          // let radis=10
+          // let max=10
+          // for(let i=0;i<max;i++){
+          //     ctx.fillStyle=getStyle(20,20,30,1-i/10)
+          //     ctx.fillRect(i*radis,0,radis,radis)
+          // }
+
+          ctx.translate(75,75)
+
+
+          let j=0
+          let divival=20
+          let start=30
+          let end=40
+          let lwidth=7
+          setInterval(()=>{
+              j++;
+              // console.log(j+1)%12===0)
+              if ((j-1)%(divival+1)===0){
+                  ctx.clearRect(-100,-100,200,200)
+              }
+              ctx.rotate(Math.PI*2/divival)
+              ctx.beginPath()
+              ctx.moveTo(start,0)
+              ctx.lineWidth=lwidth
+              ctx.lineTo(end,0)
+              ctx.stroke()
+          },50)
+
+
+      }
+
+
+      function fillParallelogram(ctx,a1,a2,a3,a4,a5,a6,a7,a8){
+          fillAngle(ctx,a1,a2,a3,a4,a5,a6)
+          fillAngle(ctx,a5,a6,a7,a8,a1,a2)
+      }
+      function fillAngle(ctx,a,b,c,d,e,f) {
+          ctx.beginPath()
+          ctx.moveTo(a,b)
+          ctx.lineTo(c,d)
+          ctx.lineTo(e,f)
+          ctx.closePath()
+
+          ctx.fillStyle=getStyle(random(255),random(255),random(255),Math.random())
+          ctx.fill()
+      }
+
+      function getStyle(r,g,b,a) {
+          return 'rgba(' + r + ', ' + g + ','+ b+','+a+')';
+      }
+      function random(max) {
+          return Math.round(Math.random()*max);
+      }
+      function getArray(j,max) {
+          var a=[]
+          a.push(0)
+          for(var i=0;i<j-1;i++){
+              a.push(random(max))
+          }
+          a.sort((k,v)=>{
+              return k-v
+          })
+          a.push(max)
+          return a
+      }
+      function getArray2(j,max) {
+          var a=[]
+          for(var i=0;i<j+1;i++){
+              a.push(random(max))
+          }
+          return a
+      }
+  </script>
+</head>
+<body onload="draw()">
+<canvas id="canvas" width="1904" height="900">
+</canvas>
+<!--<div style="display: none">-->
+<!--  <svg id="svg" t="1579592572913" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2371" width="200" height="200"><path d="M118.4 710.4l-62.4 36.8 25.6 44.8L144 755.2 139.2 800l35.2 3.2 6.4-70.4 16-9.6 70.4 25.6-59.2 65.6 70.4 100.8 123.2 11.2 27.2-86.4 59.2 51.2v16l-59.2 41.6 20.8 28.8 38.4-27.2V1024h51.2v-72l36.8 25.6 20.8-28.8-57.6-40v-17.6l57.6-49.6 25.6 86.4 123.2-11.2L816 816l-60.8-65.6 73.6-25.6 14.4 8 6.4 72 35.2-3.2-4.8-48 62.4 36.8 25.6-44.8-62.4-35.2 40-19.2-14.4-32-64 30.4-16-9.6-14.4-73.6 88 20.8 52.8-112-52.8-112-88 20.8 14.4-76.8 14.4-8 65.6 30.4 14.4-32-43.2-19.2 62.4-36.8-25.6-44.8-59.2 32 3.2-44.8-35.2-3.2-6.4 70.4-16 9.6-70.4-25.6 60.8-65.6-70.4-100.8-123.2-12.8-25.6 86.4-59.2-51.2v-16l59.2-41.6L576 46.4l-38.4 27.2V0h-51.2v72L448 46.4l-20.8 28.8 57.6 40v17.6l-57.6 49.6L401.6 96l-123.2 11.2L208 208l60.8 65.6-73.6 25.6-14.4-8-4.8-70.4-36.8 3.2 4.8 46.4-62.4-36.8-25.6 44.8 62.4 35.2-41.6 19.2 14.4 32 64-28.8 16 9.6 12.8 73.6L97.6 400l-52.8 112 52.8 112 88-20.8-14.4 76.8-14.4 8-65.6-30.4-14.4 32 41.6 20.8z m574.4-510.4l-54.4 17.6 9.6-73.6 68.8 16 48 52.8-59.2 44.8-12.8-57.6z m-78.4 134.4L577.6 224l62.4 67.2 89.6 19.2-115.2 24z m-56 96l-9.6-86.4 52.8 12.8 38.4 38.4-81.6 35.2zM512 289.6l-43.2 11.2L512 208l43.2 91.2-43.2-9.6zM872 512l-41.6-38.4 68.8-28.8 20.8 67.2-20.8 67.2-68.8-28.8 41.6-38.4z m-153.6 0l76.8-88-28.8 88 27.2 88-75.2-88z m-113.6 0l70.4-52.8 14.4 52.8-14.4 52.8-70.4-52.8z m100.8-112l-32-32 100.8-8-57.6 83.2-11.2-43.2z m-12.8 424l12.8-56 59.2 44.8-48 51.2-68.8 16-9.6-73.6 54.4 17.6z m-78.4-132.8l113.6 22.4-89.6 19.2-60.8 67.2 36.8-108.8z m-56-97.6l80 35.2-38.4 38.4-52.8 14.4 11.2-88z m147.2 30.4l12.8-43.2 57.6 83.2-102.4-8 32-32zM331.2 824l54.4-17.6-9.6 73.6-68.8-16-48-51.2 59.2-44.8 12.8 56z m78.4-134.4L448 800l-64-67.2-89.6-19.2 115.2-24z m56-96l9.6 86.4-52.8-12.8-38.4-40 81.6-33.6z m46.4 140.8l43.2-11.2L512 816l-43.2-91.2 43.2 9.6zM152 512l41.6 38.4-68.8 28.8L104 512l20.8-67.2 68.8 28.8L152 512z m153.6 0l-76.8 88L256 512l-27.2-88 76.8 88z m113.6 0l-70.4 52.8-16-52.8 14.4-52.8 72 52.8z m-100.8 112l32 32-100.8 8 57.6-83.2 11.2 43.2z m12.8-424l-11.2 54.4-59.2-44.8 48-51.2 68.8-16 9.6 73.6-56-16z m78.4 134.4l-113.6-22.4 89.6-19.2 62.4-67.2-38.4 108.8z m56 96l-80-35.2 38.4-38.4 52.8-12.8-11.2 86.4zM318.4 400l-12.8 43.2-57.6-83.2 100.8 8-30.4 32z" p-id="2372"></path></svg>-->
+<!--</div>-->
+
+</body>
+</html>

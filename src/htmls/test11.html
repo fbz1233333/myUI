@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+    function draw() {
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+
+        ctx.save()
+        ctx.translate(75,75)
+        var img=new Image()
+        img.onload=()=>{
+            ctx.drawImage(img,10,10,50,50)
+            ctx.beginPath()
+            ctx.moveTo(20,20)
+            ctx.lineTo(20,30)
+            ctx.lineTo(30,30)
+            ctx.lineTo(30,40)
+            ctx.stroke()
+        }
+        img.src="../assets/logo.png"
+
+    }
+  </script>
+</head>
+<body onload="draw()">
+<canvas id="canvas" width="1000" height="1000"></canvas>
+
+</body>
+</html>

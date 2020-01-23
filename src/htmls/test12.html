@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+    function draw() {
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+
+         var img=new Image()
+        img.src="../assets/logo.png"
+        console.log(img.width)
+        console.log(img.height)
+        ctx.drawImage(img,0,0,100,100,0,0,100,100)
+    }
+  </script>
+</head>
+<body onload="draw()">
+<canvas id="canvas" width="1000" height="1000"></canvas>
+
+</body>
+</html>
